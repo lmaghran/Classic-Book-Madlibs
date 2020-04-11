@@ -2,22 +2,32 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  const [currentBook, setCurrentBook] = useState(0);
+class App extends React.Component {
+    constructor(){
+        super()
+        this.state={
+            book:{}
+        }
+    }
 
-  useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentBook(data.title);
-    });
-  }, []);
+    componentDidMount() {
+        fetch("/books")
+        .then(response => response.json())
+        .then(data=> {
+            this.setState({
+                book:data
+            })
+        })
+    }
+  
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>The first book is {currentBook}.</p>
-      </header>
-    </div>
-  );
+      render() {
+        return (
+            <div>
+                {this.state.book.title}
+            </div>
+        )
+    }
 }
 
 export default App;

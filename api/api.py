@@ -9,7 +9,7 @@ app = Flask(__name__)
 # def get_current_time():
 #     return {'time': time.time()}
 
-@app.route('/time')
+@app.route('/books')
 def booklist_api():
     """API for Booklist"""
 
