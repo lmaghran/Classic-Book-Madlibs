@@ -25,9 +25,9 @@ def booklist_api():
     # removing the ul element from the list
     book_list.pop(0)
 
-    for li in book_list[:1]:
+    for li in book_list[:99]:
         book_dict={}
-        book_title_auth= li.text.split("by", 1)
+        book_title_auth= li.text.split(" by ", 1)
         book_title= book_title_auth[0]
         if len(book_title_auth)>1:
             book_auth= book_title_auth[1][:-7]
@@ -37,6 +37,6 @@ def booklist_api():
         book_dict = {"title": book_title, "url":book_url, "author":book_auth}
     
         book_array.append(book_dict)
-    book_array= json.dumps(book_dict)
+    book_array= json.dumps(book_array)
 
     return book_array

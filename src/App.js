@@ -1,33 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Book from "./Components/Books.js"
 
 class App extends React.Component {
+
     constructor(){
         super()
-        this.state={
-            book:{}
+        this.state = {
+            allBooks:[]
         }
     }
 
-    componentDidMount() {
+ componentDidMount() {
         fetch("/books")
-        .then(response => response.json())
-        .then(data=> {
-            this.setState({
-                book:data
+            .then(response => response.json())
+            .then(data=> {
+                console.log(data)
+                const books = data
+                this.setState({ allBooks: books })
+                console.log(this.state)
             })
-        })
     }
-  
 
-      render() {
+    
+
+    render(){
+        const eachbook = this.state.allBooks.map(item => <Book key= {item.title} item={item}/>);
+    
         return (
-            <div>
-                {this.state.book.title}
+            <div>               
+                {eachbook}
             </div>
+
         )
     }
 }
+
 
 export default App;
