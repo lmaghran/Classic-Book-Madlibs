@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Book from "./Components/Books.js"
-import Autocomplete from "./Components/Autocomplete.js"
+import BookForm from "./Components/BookForm.js"
 
 class App extends React.Component {
 
@@ -9,7 +9,8 @@ class App extends React.Component {
         super()
         this.state = {
             allBooks:[],
-            allBooksTitles:[]
+            allBooksTitles:[],
+            bookTextsection:""
         }
     }
 
@@ -19,6 +20,7 @@ class App extends React.Component {
             .then(data=> {
                 const books = data
                 this.setState({ allBooks: books })
+                console.log(this.state.allBooks)
                 
             })
 
@@ -27,15 +29,14 @@ class App extends React.Component {
 
     }
 
-    
 
     render(){
         let sug = []
         this.state.allBooks.map(item => sug.push(item.title));
         
         return (
-            <div>               
-                <Autocomplete suggestions= {sug} />
+            <div> 
+                < BookForm />              
             </div>
 
         )

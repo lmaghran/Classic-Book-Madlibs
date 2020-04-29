@@ -139,6 +139,8 @@ class Autocomplete extends Component {
     return (
       <Fragment>
         <input
+          id="bookname" 
+          name="bookname"
           type="text"
           onChange={onChange}
           onKeyDown={onKeyDown}
