@@ -1,4 +1,4 @@
-from flask import Flask, render_template, json
+from flask import Flask, render_template, json, request
 import requests
 from bs4 import BeautifulSoup as bs
 from helper import get_books
@@ -31,9 +31,10 @@ def booklist_api():
     book_array= json.dumps(book_array)
     return book_array
 
-@app.route('/book_text')
+@app.route('/book_text', methods=['GET'])
 def book_text():
-    # request.args.get('rec_area') != None:
+    selected_book = request.args.get('selected_book')
+    print(selected_book)
     # selected_area= request.args.get('rec_area')
     return "Hello World"
 

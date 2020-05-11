@@ -120,6 +120,7 @@ class Autocomplete extends Component {
                   className={className}
                   key={suggestion}
                   onClick={onClick}
+                  id= "selected_book"
                 >
                   {suggestion}
                 </li>

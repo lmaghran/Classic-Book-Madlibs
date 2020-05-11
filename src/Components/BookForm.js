@@ -33,7 +33,7 @@ class BookForm extends React.Component {
         return (
             <div>               
                 <h2> Please choose your book here: </h2>
-                    <form action='/book_text'>
+                    <form action='/book_text' id= 'selected_book'>
                             <Autocomplete suggestions={sug} />
                         <button > Click here to start Madlibs</button>
         
