@@ -31,5 +31,11 @@ def booklist_api():
     book_array= json.dumps(book_array)
     return book_array
 
+@app.route('/book_text')
+def book_text():
+    # request.args.get('rec_area') != None:
+    # selected_area= request.args.get('rec_area')
+    return "Hello World"
+
 if __name__ == "__main__": 
     app.run(host="0.0.0.0")
